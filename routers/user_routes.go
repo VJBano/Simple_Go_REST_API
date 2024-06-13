@@ -13,5 +13,6 @@ func UserRoutes(in *gin.Engine) {
 	userService := services.UserServiceImpl{Repository: userRepository}
 	userControllers := controllers.UserControllers{Service: userService}
 
-	in.GET("/api/users", userControllers.GetAllUser)
+	in.POST("/api/user/create", userControllers.CreateNewUser)
+	in.GET("/api/user/users", userControllers.GetAllUser)
 }

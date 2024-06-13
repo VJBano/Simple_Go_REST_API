@@ -14,7 +14,13 @@ type UserControllers struct {
 
 func (s UserControllers) CreateNewUser(ctx *gin.Context) {
 
-	newUser, err := s.Service.CreateNewUser(models.User{})
+	var users = models.User{}
+
+	if err := ctx.ShouldBindJSON(&users); err != nil {
+		ctx.AbortWithError(http.StatusBadRequest, err)
+		return
+	}
+	newUser, err := s.Service.CreateNewUser(users)
 
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
