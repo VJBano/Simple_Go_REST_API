@@ -15,7 +15,7 @@
 config.env
 
 # Ignore docker-compose.yml
-docker-compose.yml
+# docker-compose.yml
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
