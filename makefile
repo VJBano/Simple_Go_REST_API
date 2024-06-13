@@ -27,7 +27,7 @@ run:
 
 # Run the application with Docker Compose
 run-docker:
-	docker-compose up -d
+	docker-compose up --build
 
 # Stop Docker Compose
 stop-docker:
